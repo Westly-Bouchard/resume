@@ -150,5 +150,5 @@
 #v(2pt)
 
 - *Software & Tools:* C++, Python, Java, ROS2, Linux, Git / GitHub Actions, Django, React
-- *Electrical & Hardware:* KiCad (PCB Design), Verilog, Logic Design, SPI / CAN Protocols, AS5047P
+- *Electrical & Hardware:* KiCad (PCB Design), Verilog, Logic Design, SPI / CAN Protocols, Embedded C
 - *Mechanical & Design:* SolidWorks (CSWP Certified), Onshape, 3D Printing / DFM, Physical Prototyping
