@@ -55,13 +55,12 @@
 // Open Holonomics
 #grid(
   columns: (1fr, auto),
-  [*Open Holonomics* | _ROS2, C++, Python, Onshape, Prototyping_],
+  [*Open Holonomics* | _ROS2, C++, Python, Onshape, Manufacturing_],
   [May 2025 - Present]
 )
 - Designed and manufactured a compact, open-source, swerve drive module, utilizing custom gear reductions to fit within a constrained 12x12-inch footprint.
 - Developed a modular, node-based ROS2 control stack to handle forward kinematics and command generation.
-- Debugged and resolved precision tracking issues by reverse-engineering ODrive CAN protocols to correctly pack position setpoints and feedforward terms into 8-byte payloads.
-
+- Iterated through multiple rapid prototyping cycles to optimize manufacturability, fine-tuning gear tooth tolerances and bearing press-fits to achieve consistent dimensional accuracy across four identical modules.
 #v(4pt)
 
 // Motor driver interface
@@ -111,7 +110,7 @@
   [Jun 2025 - Aug 2025]
 )
 - Contributed to the development of a large, technically complex web application.
-- Rewrote outdated PHP APIs using Python and Django to modernize the backend infrastructure.
+- Rewrote outdated PHP APIs using Python and Django to modernize backend infrastructure.
 - Ensured strict interoperability between legacy codebases and the modern front-end, working extensively with React.js, Typescript, MySQL, Postgres, and Snowflake.
 - Managed version control and agile workflows using Git, GitHub, and Scrum.
 
