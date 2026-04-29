@@ -149,6 +149,6 @@
 // #line(length: 100%, stroke: 0.5pt)
 #v(2pt)
 
-- *Software & Tools:* C++, Python, ROS2, Linux, Git / GitHub, Django, React, Machine Learning
+- *Software & Tools:* C++, Python, ROS2, Linux, Git / GitHub, Django, React, ML, Sklearn
 - *Electrical & Hardware:* KiCad (PCB Design), Verilog, Logic Design, SPI / CAN Protocols, Embedded C
 - *Mechanical & Design:* SolidWorks (CSWP), Onshape, 3DP / DFM, Prototyping, Feedback Control Analysis
