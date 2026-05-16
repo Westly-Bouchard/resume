@@ -1,7 +1,7 @@
-// Page setup
+// Page setup - slightly adjusted vertical margins to protect single-page layout
 #set page(
   paper: "us-letter",
-  margin: (x: 0.75in, y: 0.5in),
+  margin: (x: 0.75in, top: 0.4in, bottom: 0.4in),
 )
 
 // ATS friendly font and line spacing
@@ -10,47 +10,34 @@
   size: 10pt
 )
 
-#set par(justify: true, leading: 0.5em)
+#set par(justify: true, leading: 0.45em)
 
 #show heading.where(level: 1): it => block(
-  above: 10pt, // Space above heading
-  below: 4pt,  // Space between heading line and content
+  above: 8pt,  // Reduced spacing above headings
+  below: 2pt,  // Reduced spacing below headings
   [
-    #text(size: 12pt, weight: "bold", it.body)
-    #v(-6pt) // Pulls the line up closer to the text
+    #text(size: 11pt, weight: "bold", it.body)
+    #v(-7pt) 
     #line(length: 100%, stroke: 0.5pt)
   ]
 )
 
-// Configure list spacing
-// #set list(spacing: 0.3em)
-
 // Header
 #align(center)[
-  // Name
-  #text(size: 22pt, weight: "bold")[Westly Bouchard]
-  #v(-8pt)
+  #text(size: 20pt, weight: "bold")[Westly Bouchard]
+  #v(-10pt)
 
-  // Location and phone number
-  Denver, CO | 720-418-0939
-
-  // Web links
+  Denver, CO | 720-418-0939 \
+  #v(-2pt)
   #link("https://westlybouchard.com")[westlybouchard.com] | 
   #link("mailto:westly.bouchard@gmail.com")[westly.bouchard\@gmail.com] | 
   #link("https://www.linkedin.com/in/wcbouchard")[linkedin.com/in/wcbouchard]
 ]
 
-// Horizontal line that separates the header from the rest of the content
-// #line(length: 100%, stroke: 0.5pt)
-// #v(5pt)
-
 /*
  * Projects
 */
-
 #heading(level: 1)[Projects]
-// #line(length: 100%, stroke: 0.5pt)
-#v(2pt)
 
 // Open Holonomics
 #grid(
@@ -58,50 +45,36 @@
   [*Open Holonomics* | _ROS2, C++, Python, Onshape, Manufacturing_],
   [May 2025 - Present]
 )
-- Designed and manufactured a compact, open-source, swerve drive module, utilizing custom gear reductions to fit within a constrained 12x12-inch footprint.
-- Developed a modular, node-based ROS2 control stack to handle forward kinematics and command generation.
-- Iterated through multiple rapid prototyping cycles to optimize manufacturability, fine-tuning gear tooth tolerances and bearing press-fits to achieve consistent dimensional accuracy across four identical modules.
-#v(4pt)
+- Designed and manufactured a compact swerve drive module, validating dimensional accuracy and tolerances across rapid prototyping cycles.
+- Isolated a hardware-software integration failure where motors deviated from targets; diagnosed uninitialized CAN payload bytes using ODrive tools and verified the fix.
+- Co-authored comprehensive assembly runbooks and system startup/shutdown procedures to streamline module builds and bring-up testing.
+#v(1pt)
 
 // Motor driver interface
 #grid(
   columns: (1fr, auto),
   [*Motor Driver Interface* | _C++, ROS2_control, Linux, CAN Bus_],
-  [May 2025 - August 2025]
+  [May 2025 - Aug 2025]
 )
-- Developed a custom C++ `ros2_control` hardware interface to communicate with legacy ODrive motor controllers over a CAN bus network.
-- Implemented asynchronous, non-blocking CAN frame read/write operations utilizing Linux SocketCAN and the `epoll()` syscall, ensuring deterministic executing without thread-spinning.
-- Modified legacy open-source motor firmware to multiplex dual-encoder inputs over the bus, significantly reducing system wiring complexity.
-
-#v(4pt)
+- Developed a custom C++ `ros2_control` hardware interface to communicate with legacy ODrive motor controllers over a CAN network.
+- Leveraged Linux SocketCAN primitives and `epoll()` for deterministic, non-blocking I/O, reducing CPU overhead during runtime validation.
+- Used Linux command-line diagnostics to verify custom firmware modifications multiplexing dual-encoder sensor data over a single bus.
+#v(1pt)
 
 // Encoder PCB
 #grid(
   columns: (1fr, auto),
   [*Encoder PCB* | _KiCad, PCB Design, AS5047P, SPI_],
-  [June 2025 - December 2025]
+  [June 2025 - Dec 2025]
 )
-- Designed and routed a custom rotary magnetic position sensor PCB in KiCad based on the AS5047p IC for use in robotic actuators.
-- Engineered the board to support both 3.3V and 5V logic and successfuly broke out SPI, ABI, and UVB communication interfaces for maximum hardware compatibility.
-
-#v(4pt)
-
-// Pen plotter
-// #grid(
-//   columns: (1fr, auto),
-//   [*CoreXY Pen Plotter* | _C++, Arduino, Embedded Electronics_],
-//   [Oct 2024 - Nov 2024]
-// )
-// - Led the electronics and firmware integration for a CoreXY kinematic pen plotter, managing stepper motors, driver, and limit switches.
-// - Programmed a custom C++ motion controller capable of interpolating Bézier curves and processing discrete timesteps over a serial connection.
+- Designed a rotary magnetic position sensor PCB in KiCad supporting SPI, ABI, and UVW interfaces for 3.3V/5V robotic actuators.
+- Ran structured tests on V1 prototypes; diagnosed an ABI failure mode caused by floating SPI pins and implemented a verified hardware fix on V2.
+- Partnered with an external manufacturer to manage fabrication and automated assembly of updated boards for final qualification testing.
 
 /*
  * Experience
 */
-
 #heading(level: 1)[Experience]
-// #line(length: 100%, stroke: 0.5pt)
-#v(2pt)
 
 // Freewheel
 #grid(
@@ -109,12 +82,10 @@
   [*Software Engineer Intern* | _Freewheel (Beeswax App Team)_],
   [Jun 2025 - Aug 2025]
 )
-- Contributed to the development of a large, technically complex web application.
-- Rewrote outdated PHP APIs using Python and Django to modernize backend infrastructure.
-- Ensured strict interoperability between legacy codebases and the modern front-end, working extensively with React.js, Typescript, MySQL, Postgres, and Snowflake.
-- Managed version control and agile workflows using Git, GitHub, and Scrum.
-
-#v(4pt)
+- Modernized backend infrastructure by refactoring legacy PHP APIs into Python and Django for a complex web application.
+- Maintained strict data interoperability across front- and back-end systems using React, TypeScript, MySQL, Postgres, and Snowflake.
+- Managed version control, bug tracking, and regression logging using *Jira*, Git, and GitHub within an active Agile/Scrum framework.
+#v(1pt)
 
 // CS200 TA
 #grid(
@@ -122,14 +93,13 @@
   [*Computer Science Teaching Assistant* | _Colorado School of Mines_],
   [Jan 2024 - Present]
 )
-- Guided engineering students through their foundational C++ coursework.
-- Supported student comprehension of complex memory management and object-oriented topics, including pointers, inheritance, and polymorphism.
+- Guided engineering students through foundational C++ coursework, debugging, and code compilation procedures.
+- Supported student comprehension of complex memory management, object-oriented topics, pointers, inheritance, and polymorphism.
 
-#v(8pt)
-
+/*
+ * Education
+*/
 #heading(level: 1)[Education]
-// #line(length: 100%, stroke: 0.5pt)
-#v(2pt)
 
 #grid(
   columns: (1fr, auto),
@@ -140,15 +110,11 @@
 - *Concentration:* Robotics & Automation | *Minor:* Computer Science
 - *GPA:* 3.9 / 4.0 (Dean's List)
 
-#v(6pt)
-
-// =========================================
-// SKILLS
-// =========================================
+/*
+ * Skills
+*/
 #heading(level: 1)[Skills]
-// #line(length: 100%, stroke: 0.5pt)
-#v(2pt)
 
-- *Software & Tools:* C++, Python, ROS2, Linux, Git / GitHub, Django, React, ML, Sklearn
-- *Electrical & Hardware:* KiCad (PCB Design), Verilog, Logic Design, SPI / CAN Protocols, Embedded C
-- *Mechanical & Design:* SolidWorks (CSWP), Onshape, 3DP / DFM, Prototyping, Feedback Control Analysis
+- *Software & Systems:* C++, Python, ROS2, Linux (Command Line), Git / GitHub, Django, React, *Jira / Agile Tracking*
+- *Testing & Hardware:* KiCad (PCB Design), Hardware Validation, Signal / Protocol Logging (SPI & CAN Bus), Sensor Calibration, Logic Design
+- *Mechanical & Design:* SolidWorks (CSWP), Onshape, 3DP / DFM, Prototyping, Runbook Documentation, Feedback Control Analysisw
